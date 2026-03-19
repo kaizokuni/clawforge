@@ -7,6 +7,7 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { CLAWFORGE_HOME } from "../shared/constants.js";
 
 const PID_FILE = path.join(CLAWFORGE_HOME, "daemon.pid");
@@ -18,7 +19,8 @@ const PID_FILE = path.join(CLAWFORGE_HOME, "daemon.pid");
 export function spawnDaemon(): number {
   // Get the current executable
   const nodeExec = process.execPath;
-  const scriptPath = new URL(import.meta.url).pathname.replace(/daemon\/process\.js$/, "index.js");
+  const currentFile = fileURLToPath(import.meta.url);
+  const scriptPath = path.join(path.dirname(currentFile), "..", "index.js");
 
   const child = spawn(nodeExec, [scriptPath, "daemon-internal"], {
     detached: true,

@@ -10,13 +10,15 @@
 | 5 Integration | ✅ | MCP server (37 tools), CLI (18 cmds), daemon |
 | 6 Content | ✅ | 8 skills, 8 agents, 10 cmds, 8 hooks, 5 settings |
 | 7 Polish | ✅ | README, 105 tests (10 files), v1.0.0 |
+| 8 Operational | ✅ | Running on-device, web UI live at :19877, MCP connected |
 
 **Files**: 87 .ts | **Build**: ✅ tsc (0 errors) | **Tests**: ✅ 105/105 (vitest)
 **Components**: 8/8 skills, 8/8 agents, 10/10 cmds, 8/8 hooks, 5/5 settings
+**Status**: 🟢 LIVE — daemon PID healthy, port 19877 up, MCP wired to Claude Code
 
 ---
 
-## v1.0.0 Complete
+## v1.0.0 — Fully Operational
 
 ### All 37 MCP Tools
 ```
@@ -44,6 +46,14 @@ cron · skill · agent · mcp · monitor
 command · hook · settings · marketplace · workflow
 init · setup · start/stop/status (daemon)
 ```
+
+### On-Device Setup (Windows)
+- Daemon: `clawforge start` → PID file at `~/.clawforge/daemon.pid`
+- Monitor UI: `http://localhost:19877` (live)
+- Playwright Chromium: installed at `%APPDATA%\Local\ms-playwright\`
+- MCP config: `~/.claude/.mcp.json` → wired to Claude Code
+- 45 built-in components in `~/.clawforge/`
+- 44 marketplace entries seeded
 
 ### Test Coverage (105 tests, 10 files)
 | File | Tests |
@@ -80,8 +90,9 @@ init · setup · start/stop/status (daemon)
 
 ---
 
-## Recent Commits
+## Commits
 ```
+e22a0de feat: Phase 7 - README, tests (105 passing), v1.0.0
 5e0677c feat: Phase 6 - built-in content + enhanced setup/init
 af9d79b docs: progress report — P1-P5 complete
 17ab62c feat: Phase 5 - MCP server, CLI, daemon wiring
