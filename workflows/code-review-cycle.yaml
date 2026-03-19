@@ -1,0 +1,12 @@
+name: code-review-cycle
+description: Two-pass code review with feedback application.
+
+steps:
+  - agent: code-reviewer
+    instruction: "Review all staged/recent changes. Provide detailed feedback with file:line references, severity levels, and suggested fixes."
+
+  - skill: code-review
+    instruction: "Apply the feedback from the code reviewer. Fix CRITICAL and HIGH severity issues. For MEDIUM, implement the cleaner alternatives suggested."
+
+  - agent: code-reviewer
+    instruction: "Do a second pass review on the changes from the previous step. Confirm the issues were properly addressed and check if the fixes introduced any new problems."

@@ -1,0 +1,19 @@
+name: security-engineer
+description: Security-focused bundle for auditing, hardening, and reviewing code.
+
+components:
+  skills:
+    - security-audit
+    - code-review
+  agents:
+    - security-auditor
+    - code-reviewer
+  commands:
+    - security-audit
+    - explain-code
+    - refactor
+  hooks:
+    - pre-commit-validation
+    - pre-push-tests
+  settings:
+    - security-audit

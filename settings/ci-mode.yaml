@@ -1,0 +1,29 @@
+name: ci-mode
+description: Non-interactive CI/CD mode. Auto-approve safe operations, JSON output, no browser UI.
+
+permissions:
+  allowed_tools:
+    - memory_search
+    - memory_get_observations
+    - memory_context
+    - web_search
+    - web_fetch
+    - index_project
+    - index_search
+    - monitor_status
+    - monitor_cost
+    - skill_run
+    - skill_list
+    - command_run
+    - command_list
+    - hook_list
+    - settings_list
+    - workflow_run
+    - workflow_list
+    - agent_list
+    - agent_delegate
+  blocked_tools: []
+  read_only: false
+  allow_shell: true
+  allow_browser: false
+  allow_network: true

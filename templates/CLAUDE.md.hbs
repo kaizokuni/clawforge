@@ -1,0 +1,106 @@
+# {{projectName}}
+
+{{#if projectDescription}}
+> {{projectDescription}}
+{{/if}}
+
+## ClawForge Tools Available
+
+ClawForge is active on this project. The following tools are available to Claude Code:
+
+### Browser Control
+- `browser_open <url>` — Navigate to a URL
+- `browser_screenshot` — Capture the current page
+- `browser_click <selector>` — Click an element
+- `browser_type <selector> <text>` — Type into an input
+- `browser_evaluate <script>` — Execute JavaScript
+- `browser_content` — Extract readable page text
+
+### Persistent Memory
+- `memory_search <query>` — Search past observations (vector search)
+- `memory_timeline <id>` — Get context around an observation
+- `memory_get_observations <ids>` — Retrieve full observation details
+- `memory_store <type> <title> <content>` — Manually save to memory
+- `memory_context` — Inject recent session context (auto-called on start)
+
+### Web Search
+- `web_search <query>` — DuckDuckGo search
+- `web_fetch <url>` — Fetch and extract readable page content
+
+### Design Preview
+- `design_preview <html>` — Render HTML/CSS in browser + screenshot
+- `design_iterate` — Capture current browser state for iteration
+
+### Project Index
+- `index_project <dir>` — Index codebase for semantic search
+- `index_search <query>` — Semantic search across indexed files
+
+### Sub-Agents
+- `agent_delegate <task>` — Delegate to best-matched specialist agent
+- `agent_list` — List available agents
+
+Available agents: frontend-designer, backend-architect, security-auditor, code-reviewer, debug-specialist, test-engineer, devops, researcher
+
+### MCP Hub
+- `mcp_route <server> <tool> <params>` — Route call to child MCP server
+- `mcp_list_servers` — List connected MCP servers
+
+### Monitor
+- `monitor_status` — Session stats (tokens, cost, observations)
+- `monitor_cost` — Cost breakdown by project
+
+### Cron
+- `cron_schedule <name> <expr> <cmd>` — Schedule recurring task
+- `cron_list` — List scheduled tasks
+- `cron_remove <id>` — Remove a task
+
+### Skills
+- `skill_run <name>` — Execute a skill by name or trigger phrase
+- `skill_list` — List available skills
+- `skill_install <path>` — Install a skill from a SKILL.md directory
+
+Available skills: code-review, debug-loop, design-system, research, session-recap, security-audit, git-workflow, test-coverage
+
+### Commands
+- `command_run <name>` — Execute a slash command
+- `command_list` — List available commands
+
+Available commands: /generate-tests, /optimize-bundle, /security-audit, /explain-code, /refactor, /add-docs, /fix-lint, /generate-api-docs, /deploy-checklist, /session-recap
+
+### Hooks
+- `hook_trigger <name>` — Manually fire a hook
+- `hook_list` — List active hooks
+
+### Settings
+- `settings_apply <preset>` — Apply a permission preset
+- `settings_list` — List presets
+
+Presets: full-access, read-only, ci-mode, security-audit, pair-programming
+
+### Marketplace
+- `marketplace_search <query>` — Search for components
+- `marketplace_install <source>` — Install a component
+
+### Workflows
+- `workflow_run <name>` — Execute a multi-step workflow
+- `workflow_list` — List workflows
+
+Available workflows: ship-feature, bug-fix, code-review-cycle, new-project
+
+---
+
+## Project Context
+
+{{#if stack}}
+**Stack**: {{stack}}
+{{/if}}
+
+{{#if conventions}}
+## Conventions
+{{conventions}}
+{{/if}}
+
+{{#if notes}}
+## Notes
+{{notes}}
+{{/if}}

@@ -1,0 +1,24 @@
+name: web-wizard
+description: Full-stack web developer bundle. Design, test, review, and ship web applications.
+
+components:
+  skills:
+    - code-review
+    - debug-loop
+    - design-system
+    - test-coverage
+    - git-workflow
+  agents:
+    - frontend-designer
+    - code-reviewer
+    - test-engineer
+  commands:
+    - generate-tests
+    - optimize-bundle
+    - fix-lint
+    - add-docs
+  hooks:
+    - pre-commit-validation
+    - post-edit-typecheck
+  settings:
+    - full-access

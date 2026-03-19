@@ -1,0 +1,19 @@
+name: devops-pro
+description: DevOps and infrastructure bundle. CI/CD, deployment, monitoring.
+
+components:
+  skills:
+    - git-workflow
+    - test-coverage
+  agents:
+    - devops
+  commands:
+    - deploy-checklist
+    - fix-lint
+    - session-recap
+  hooks:
+    - pre-push-tests
+    - backup-before-edit
+    - on-error-debug
+  settings:
+    - ci-mode

@@ -1,0 +1,34 @@
+name: web-developer
+description: Full web development environment — design, test, review, ship.
+
+agents:
+  - agents/frontend-designer.md
+  - agents/code-reviewer.md
+  - agents/test-engineer.md
+  - agents/debug-specialist.md
+
+skills:
+  - skills/code-review/SKILL.md
+  - skills/debug-loop/SKILL.md
+  - skills/design-system/SKILL.md
+  - skills/test-coverage/SKILL.md
+  - skills/git-workflow/SKILL.md
+
+commands:
+  - commands/generate-tests.md
+  - commands/optimize-bundle.md
+  - commands/fix-lint.md
+  - commands/add-docs.md
+  - commands/deploy-checklist.md
+  - commands/session-recap.md
+
+hooks:
+  - hooks/pre-commit-validation.md
+  - hooks/post-edit-typecheck.md
+  - hooks/on-session-start-context.md
+  - hooks/on-session-end-save.md
+
+settings:
+  - settings/full-access.yaml
+
+mcp_servers: []

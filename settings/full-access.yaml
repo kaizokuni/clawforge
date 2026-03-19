@@ -1,0 +1,10 @@
+name: full-access
+description: All tools enabled with no restrictions. Default development mode.
+
+permissions:
+  allowed_tools: []
+  blocked_tools: []
+  read_only: false
+  allow_shell: true
+  allow_browser: true
+  allow_network: true

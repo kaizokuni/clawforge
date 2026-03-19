@@ -1,0 +1,15 @@
+name: bug-fix
+description: Systematic bug investigation and fix workflow.
+
+steps:
+  - skill: debug-loop
+    instruction: "Investigate and fix the reported bug. Run the failing command, trace the error, locate root cause, apply fix. Max 5 iterations."
+
+  - skill: test-coverage
+    instruction: "Write a regression test for the bug that was just fixed. Ensure it fails without the fix and passes with it."
+
+  - skill: code-review
+    instruction: "Review the bug fix for correctness. Check that it truly fixes the root cause and doesn't introduce regressions."
+
+  - skill: git-workflow
+    instruction: "Create a commit message with type 'fix', describing the bug and the fix. Reference any issue numbers."

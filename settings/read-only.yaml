@@ -1,0 +1,20 @@
+name: read-only
+description: No file writes, no destructive shell commands. Safe for code review and exploration.
+
+permissions:
+  allowed_tools: []
+  blocked_tools:
+    - memory_store
+    - cron_schedule
+    - cron_remove
+    - skill_install
+    - marketplace_install
+    - hook_trigger
+    - settings_apply
+    - browser_click
+    - browser_type
+    - browser_evaluate
+  read_only: true
+  allow_shell: false
+  allow_browser: true
+  allow_network: true

@@ -1,0 +1,27 @@
+name: devops
+description: DevOps and CI/CD environment for deployment automation and monitoring.
+
+agents:
+  - agents/devops.md
+
+skills:
+  - skills/git-workflow/SKILL.md
+  - skills/test-coverage/SKILL.md
+  - skills/session-recap/SKILL.md
+
+commands:
+  - commands/deploy-checklist.md
+  - commands/fix-lint.md
+  - commands/session-recap.md
+
+hooks:
+  - hooks/pre-push-tests.md
+  - hooks/backup-before-edit.md
+  - hooks/on-error-debug.md
+  - hooks/on-session-start-context.md
+  - hooks/on-session-end-save.md
+
+settings:
+  - settings/ci-mode.yaml
+
+mcp_servers: []

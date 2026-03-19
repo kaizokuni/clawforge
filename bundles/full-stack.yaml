@@ -1,0 +1,44 @@
+name: full-stack
+description: Everything — all built-in skills, agents, commands, and hooks.
+
+components:
+  skills:
+    - code-review
+    - debug-loop
+    - design-system
+    - research
+    - session-recap
+    - security-audit
+    - git-workflow
+    - test-coverage
+  agents:
+    - frontend-designer
+    - backend-architect
+    - security-auditor
+    - code-reviewer
+    - debug-specialist
+    - test-engineer
+    - devops
+    - researcher
+  commands:
+    - generate-tests
+    - optimize-bundle
+    - security-audit
+    - explain-code
+    - refactor
+    - add-docs
+    - fix-lint
+    - generate-api-docs
+    - deploy-checklist
+    - session-recap
+  hooks:
+    - pre-commit-validation
+    - post-edit-typecheck
+    - on-error-debug
+    - on-session-start-context
+    - on-session-end-save
+    - file-change-reload
+    - pre-push-tests
+    - backup-before-edit
+  settings:
+    - full-access

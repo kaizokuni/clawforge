@@ -1,0 +1,18 @@
+name: new-project
+description: New project setup — research stack, scaffold, document, and initialize git.
+
+steps:
+  - skill: research
+    instruction: "Research the best tech stack and project structure for this type of project. Compare top options, find starter templates, check community recommendations."
+
+  - agent: backend-architect
+    instruction: "Design the project architecture based on the research. Define folder structure, key modules, data models, and API contracts."
+
+  - command: /add-docs
+    instruction: "Generate CLAUDE.md and add documentation stubs to the key files created during scaffolding."
+
+  - skill: git-workflow
+    instruction: "Create an initial commit with a descriptive message. Set up .gitignore for the detected project type."
+
+  - command: /deploy-checklist
+    instruction: "Run setup verification: check that the project builds, passes initial lint, and has a working test setup (even if empty)."

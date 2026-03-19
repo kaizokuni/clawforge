@@ -1,0 +1,24 @@
+name: ship-feature
+description: Full feature shipping workflow — from research to deployment.
+
+steps:
+  - skill: research
+    instruction: "Research the best approach for implementing this feature. Find relevant patterns, libraries, and potential pitfalls."
+
+  - skill: design-system
+    instruction: "If this feature has a UI component, design and preview it. Iterate until it looks right."
+
+  - agent: frontend-designer
+    instruction: "Build the frontend components based on the design. Ensure accessibility and responsiveness."
+
+  - skill: test-coverage
+    instruction: "Generate tests for the new feature. Ensure happy path, error cases, and edge cases are covered."
+
+  - agent: code-reviewer
+    instruction: "Review all changes made for this feature. Check correctness, patterns, and maintainability."
+
+  - skill: git-workflow
+    instruction: "Create a descriptive commit message and prepare a PR description summarizing the feature."
+
+  - command: /deploy-checklist
+    instruction: "Run the full pre-deployment checklist. Block if any step fails."

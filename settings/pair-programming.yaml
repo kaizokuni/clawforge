@@ -1,0 +1,17 @@
+name: pair-programming
+description: Collaborative mode. Verbose explanations, confirm before significant actions, teaching focus.
+
+permissions:
+  allowed_tools: []
+  blocked_tools: []
+  read_only: false
+  allow_shell: true
+  allow_browser: true
+  allow_network: true
+
+# Behavior notes (informational — applied via system prompt, not tool blocking):
+# - Explain reasoning before taking actions
+# - Ask for confirmation before deleting, overwriting, or running long commands
+# - Show code diffs before applying changes
+# - Use teaching moments: explain WHY, not just WHAT
+# - Slower, more deliberate pace with checkpoints

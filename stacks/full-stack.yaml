@@ -1,0 +1,49 @@
+name: full-stack
+description: Complete ClawForge environment — all built-in components installed.
+
+agents:
+  - agents/frontend-designer.md
+  - agents/backend-architect.md
+  - agents/security-auditor.md
+  - agents/code-reviewer.md
+  - agents/debug-specialist.md
+  - agents/test-engineer.md
+  - agents/devops.md
+  - agents/researcher.md
+
+skills:
+  - skills/code-review/SKILL.md
+  - skills/debug-loop/SKILL.md
+  - skills/design-system/SKILL.md
+  - skills/research/SKILL.md
+  - skills/session-recap/SKILL.md
+  - skills/security-audit/SKILL.md
+  - skills/git-workflow/SKILL.md
+  - skills/test-coverage/SKILL.md
+
+commands:
+  - commands/generate-tests.md
+  - commands/optimize-bundle.md
+  - commands/security-audit.md
+  - commands/explain-code.md
+  - commands/refactor.md
+  - commands/add-docs.md
+  - commands/fix-lint.md
+  - commands/generate-api-docs.md
+  - commands/deploy-checklist.md
+  - commands/session-recap.md
+
+hooks:
+  - hooks/pre-commit-validation.md
+  - hooks/post-edit-typecheck.md
+  - hooks/on-error-debug.md
+  - hooks/on-session-start-context.md
+  - hooks/on-session-end-save.md
+  - hooks/file-change-reload.md
+  - hooks/pre-push-tests.md
+  - hooks/backup-before-edit.md
+
+settings:
+  - settings/full-access.yaml
+
+mcp_servers: []

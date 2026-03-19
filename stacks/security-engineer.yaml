@@ -1,0 +1,25 @@
+name: security-engineer
+description: Security-focused environment for auditing and hardening code.
+
+agents:
+  - agents/security-auditor.md
+  - agents/code-reviewer.md
+
+skills:
+  - skills/security-audit/SKILL.md
+  - skills/code-review/SKILL.md
+
+commands:
+  - commands/security-audit.md
+  - commands/explain-code.md
+  - commands/refactor.md
+
+hooks:
+  - hooks/pre-commit-validation.md
+  - hooks/pre-push-tests.md
+  - hooks/on-session-start-context.md
+
+settings:
+  - settings/security-audit.yaml
+
+mcp_servers: []
