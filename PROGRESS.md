@@ -1,5 +1,5 @@
 # ClawForge Progress
-> Updated: 2026-03-18
+> Updated: 2026-03-19
 
 | Phase | Status | Description |
 |-------|--------|-------------|
@@ -8,19 +8,34 @@
 | 3 Advanced | ✅ | Agents, MCP hub, monitor, skills |
 | 4 Ecosystem | ✅ | Commands, hooks, settings, marketplace, workflows |
 | 5 Integration | ✅ | MCP server (37 tools), CLI (18 cmds), daemon |
-| 6 Content | ⬜ | 8 skills, 8 agents, 10 cmds, 8 hooks, 5 settings |
-| 7 Polish | ⬜ | README, tests, v1.0.0 |
+| 6 Content | ✅ | 8 skills, 8 agents, 10 cmds, 8 hooks, 5 settings |
+| 7 Polish | ✅ | README, 105 tests (10 files), v1.0.0 |
 
-**Files**: 87 .ts | **Build**: pass (tsc --noEmit: 0 errors) | **Tests**: 0
-**Components**: 0/8 skills, 0/8 agents, 0/10 cmds, 0/8 hooks, 0/5 settings
+**Files**: 87 .ts | **Build**: ✅ tsc (0 errors) | **Tests**: ✅ 105/105 (vitest)
+**Components**: 8/8 skills, 8/8 agents, 10/10 cmds, 8/8 hooks, 5/5 settings
 
 ---
 
-## What's Done (P1-P5)
+## v1.0.0 Complete
 
-### MCP Server
-- `McpServer` + `StdioServerTransport` — Claude Code connects via stdio
-- 37 tools registered with zod schemas and handlers
+### All 37 MCP Tools
+```
+browser_open, browser_screenshot, browser_click, browser_type, browser_evaluate, browser_content
+memory_search, memory_timeline, memory_get_observations, memory_store, __IMPORTANT
+web_search, web_fetch
+design_preview, design_iterate
+index_project, index_search
+agent_delegate, agent_list
+mcp_route, mcp_list_servers
+monitor_status, monitor_cost
+cron_schedule, cron_list, cron_remove
+skill_run, skill_list, skill_install
+command_run, command_list
+hook_trigger, hook_list
+settings_apply, settings_list
+marketplace_search, marketplace_install
+workflow_run, workflow_list
+```
 
 ### CLI (18 subcommands)
 ```
@@ -30,9 +45,19 @@ command · hook · settings · marketplace · workflow
 init · setup · start/stop/status (daemon)
 ```
 
-### Daemon
-- `clawforge start` → detached background process (PID file)
-- Internal loop: cron + monitor web server + browser pool + hook watchers
+### Test Coverage (105 tests, 10 files)
+| File | Tests |
+|------|-------|
+| constants.test.ts | 12 |
+| marketplace-validator.test.ts | 12 |
+| settings-applier.test.ts | 8 |
+| commands.test.ts | 10 |
+| hooks.test.ts | 9 |
+| skills.test.ts | 10 |
+| indexer.test.ts | 11 |
+| workflows.test.ts | 8 |
+| agents.test.ts | 9 |
+| integration.test.ts | 16 |
 
 ### Tool Modules (15 complete)
 | Module | Files | Key capability |
@@ -55,26 +80,16 @@ init · setup · start/stop/status (daemon)
 
 ---
 
-## Next: Phase 6 — Built-in Content
-
-- 8 built-in skills in `skills/`
-- 8 built-in agents in `agents/`
-- 10 slash commands in `commands/`
-- 8 hooks in `hooks/`
-- 5 settings presets in `settings/`
-- 4 bundles, 4 workflows, 4 stacks
-- CLAUDE.md.hbs template
-- Enhanced `setup` + `init` commands
-
 ## Recent Commits
 ```
+5e0677c feat: Phase 6 - built-in content + enhanced setup/init
+af9d79b docs: progress report — P1-P5 complete
 17ab62c feat: Phase 5 - MCP server, CLI, daemon wiring
 62d67ca feat: Phase 4 - commands, hooks, settings, marketplace, workflows
 d57f426 feat: Phase 3 - agents, MCP hub, monitor, skills
 c5fb653 docs: progress — Phase 2 complete
 c2bfe86 feat: Phase 2 - core tools (memory, browser, search, design, indexer, cron)
 140c3bc feat: Phase 1 complete — foundation scaffold
-d0eacfa Initial commit: ClawForge project setup
 ```
 
 **Repo**: https://github.com/kaizokuni/clawforge | **License**: MIT

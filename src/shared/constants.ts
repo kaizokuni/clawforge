@@ -7,7 +7,7 @@ import path from "node:path";
 import os from "node:os";
 
 /** Package version, kept in sync with package.json. */
-export const VERSION = "0.1.0";
+export const VERSION = "1.0.0";
 
 /** Application name used in logs and config. */
 export const APP_NAME = "clawforge";
