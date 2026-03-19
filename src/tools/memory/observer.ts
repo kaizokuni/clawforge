@@ -7,6 +7,7 @@ import crypto from "node:crypto";
 import { insertObservation } from "./vector-store.js";
 import { logger } from "../../shared/logger.js";
 import type { Observation } from "../../shared/types.js";
+import { MONITOR_PORT } from "../../shared/constants.js";
 
 /** Valid observation categories. */
 export type ObservationType =
@@ -50,6 +51,12 @@ export function captureObservation(
   try {
     insertObservation(observation);
     logger.debug("Observation captured", { id: observation.id, type, title });
+    // Fire-and-forget: notify the daemon's SSE broadcast endpoint
+    fetch(`http://localhost:${MONITOR_PORT}/api/broadcast`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event: "observation", data: { id: observation.id, type, title, timestamp: observation.timestamp } }),
+    }).catch(() => { /* daemon may not be running, silently ignore */ });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     logger.error("Failed to capture observation", { error: msg, type, title });

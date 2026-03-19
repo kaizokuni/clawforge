@@ -53,7 +53,7 @@ export function recordUsage(
   const db = getDb();
   db.prepare(`
     UPDATE sessions
-    SET tokens_in = tokens_in + ?, tokens_out = tokens_out + ?, cost = cost + ?
+    SET tokens_in = tokens_in + ?, tokens_out = tokens_out + ?, tool_calls = tool_calls + 1, cost = cost + ?
     WHERE id = ?
   `).run(tokensIn, tokensOut, cost, sessionId);
 }
@@ -99,11 +99,11 @@ export function getSessionMetrics(sessionId: string): SessionMetrics | null {
 export function getRecentSessions(limit: number = 20): ToolResult {
   const db = getDb();
   const rows = db.prepare(`
-    SELECT id, start, end_time, project_path, tokens_in, tokens_out, cost
+    SELECT id, start, end_time, project_path, tokens_in, tokens_out, tool_calls, cost
     FROM sessions ORDER BY start DESC LIMIT ?
   `).all(limit) as Array<{
     id: string; start: string; end_time?: string; project_path: string;
-    tokens_in: number; tokens_out: number; cost: number;
+    tokens_in: number; tokens_out: number; tool_calls: number; cost: number;
   }>;
 
   return {

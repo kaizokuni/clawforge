@@ -72,6 +72,7 @@ function createTables(database: Database.Database): void {
       project_path TEXT NOT NULL,
       tokens_in INTEGER DEFAULT 0,
       tokens_out INTEGER DEFAULT 0,
+      tool_calls INTEGER DEFAULT 0,
       cost REAL DEFAULT 0
     );
 
@@ -100,6 +101,9 @@ function createTables(database: Database.Database): void {
       vector float[${EMBEDDING_DIMENSIONS}]
     );
   `);
+
+  // Migrate: add tool_calls column to existing sessions tables
+  try { database.exec(`ALTER TABLE sessions ADD COLUMN tool_calls INTEGER DEFAULT 0`); } catch { /* already exists */ }
 
   // Metadata table for project_index chunks
   database.exec(`

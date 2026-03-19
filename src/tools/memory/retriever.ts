@@ -52,31 +52,34 @@ export async function search(
 
 /**
  * Fallback text-based search when embeddings are unavailable.
+ * Searches the observations table directly by title and content.
  * @param query - Search query.
  * @param limit - Maximum results.
- * @returns Matching summaries.
+ * @returns Matching observations.
  */
 function textSearch(query: string, limit: number): MemorySearchResult[] {
   try {
     const database = getDb();
     const rows = database.prepare(`
-      SELECT id, compressed_text, created_at FROM summaries
-      WHERE compressed_text LIKE ?
-      ORDER BY created_at DESC
+      SELECT id, title, content, timestamp, project_path FROM observations
+      WHERE content LIKE ? OR title LIKE ?
+      ORDER BY timestamp DESC
       LIMIT ?
-    `).all(`%${query}%`, limit) as Array<{
+    `).all(`%${query}%`, `%${query}%`, limit) as Array<{
       id: string;
-      compressed_text: string;
-      created_at: string;
+      title: string;
+      content: string;
+      timestamp: string;
+      project_path: string;
     }>;
 
     return rows.map(r => ({
       id: r.id,
-      content: r.compressed_text,
+      content: r.content,
       score: 0.5,
-      sourceType: "summary" as const,
-      timestamp: r.created_at,
-      projectPath: "",
+      sourceType: "observation" as const,
+      timestamp: r.timestamp,
+      projectPath: r.project_path,
     }));
   } catch {
     return [];

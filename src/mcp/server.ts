@@ -9,6 +9,8 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { registerAllTools } from "./tools.js";
 import { logger } from "../shared/logger.js";
 import { VERSION, APP_NAME } from "../shared/constants.js";
+import { startSession, endSession } from "../tools/monitor/tracker.js";
+import { setCurrentSession } from "../tools/monitor/session.js";
 
 /**
  * Start the ClawForge MCP stdio server.
@@ -28,15 +30,20 @@ export async function startMcpServer(): Promise<void> {
 
   await server.connect(transport);
 
-  logger.info("MCP server running on stdio");
+  // Start a session for this MCP server process
+  const sessionId = startSession(process.cwd());
+  setCurrentSession(sessionId);
+  logger.info("MCP server running on stdio", { sessionId });
 
   // Keep alive — server runs until process exits
   process.on("SIGINT", async () => {
+    endSession(sessionId);
     await server.close();
     process.exit(0);
   });
 
   process.on("SIGTERM", async () => {
+    endSession(sessionId);
     await server.close();
     process.exit(0);
   });
